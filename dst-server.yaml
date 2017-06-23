@@ -1,0 +1,30 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: dst-server
+  labels:
+    app: dst-server
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: dst-server
+  template:
+    metadata:
+      labels:
+        app: dst-server
+    spec:
+      containers:
+        - image: asia.gcr.io/euphoric-quanta-171208/dst-server
+          name: dst-server
+          ports:
+            - containerPort: 10888
+              name: dst-server
+          volumeMounts:
+            - name: dst-server-persistent-storage
+              mountPath: /dst-server/DoNotStarveTogether
+      volumes:
+        - name: dst-server-persistent-storage
+          gcePersistentDisk:
+            pdName: dst-server-disk
+            fsType: ext4

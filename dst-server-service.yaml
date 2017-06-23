@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: dst-server
+  name: dst-server
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 10888
+      targetPort: 10888
+      protocol: UDP
+  selector:
+    app: dst-server
