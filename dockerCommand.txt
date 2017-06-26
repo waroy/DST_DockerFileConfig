@@ -13,9 +13,9 @@ dockerfile COPY D:\Temp\test6\Cluster dst-server:/dst-server/DoNotStarveTogether
 gcloud container clusters delete dst-server
  gcloud docker -- push asia.gcr.io/euphoric-quanta-171208/dst-server:latest
 
-gcloud container clusters create dst-server --num-nodes=1
+gcloud container clusters create dst-server --num-nodes=1 --machine-type=g1-small --disk-size=5
 
-gcloud compute disks create --size 10GB dst-server-disk
+gcloud compute disks create --size 5GB dst-server-disk
 
 gcloud compute disks delete dst-server-disk
 
@@ -35,9 +35,9 @@ as
 
 kubectl delete deployment dst-server
 
-kubectl cp dst-server-2113282189-1kbdn:/dst-server/DoNotStarveTogether "D:\Temp\test5\"
+kubectl cp "D:\Temp\DockerFile\Cluster" dst-server-2113282189-3cl1z:/dst-server/DoNotStarveTogether -c dst-server
 
-kubectl cp dst-server-2891258671-50nc1:/dst-server/DoNotStarveTogether "D:\Temp\test5" 
+kubectl cp dst-server-2113282189-md7gl:/dst-server/DoNotStarveTogether "D:\Temp\test6" 
 kubectl exec dst-server-3947570111-wfzlt ls
 
 kubectl logs dst-server-2113282189-fkd0j
