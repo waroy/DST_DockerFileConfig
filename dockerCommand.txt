@@ -1,6 +1,6 @@
 docker build . -t dst-server:v4
 
-docker run --name dst-server -v "D:\Temp\DoNotStarveTogether\:/dst-server/DoNotStarveTogether" dst-server:v1
+docker run --name dst-server -v "D:\Temp\backupForDST\:/dst-server/DoNotStarveTogether" dst-server
 
 docker run -p 8080:8080 -p 50000:50000 -v /your/home:/var/jenkins_home jenkins
 
@@ -37,7 +37,22 @@ kubectl delete deployment dst-server
 
 kubectl cp "D:\Temp\DockerFile\Cluster" dst-server-2113282189-3cl1z:/dst-server/DoNotStarveTogether -c dst-server
 
-kubectl cp dst-server-2113282189-md7gl:/dst-server/DoNotStarveTogether "D:\Temp\test6" 
+kubectl cp dst-server-2113282189-zfmvr:/dst-server/DoNotStarveTogether "D:\Temp\backupForDST" 
 kubectl exec dst-server-3947570111-wfzlt ls
 
 kubectl logs dst-server-2113282189-fkd0j
+
+docker run -dit -p 7777:7777 -v D:\game\terraria_server\:/world --name="terraria" ryshe/terraria:latest -world /world/waroy_test.wld
+
+
+
+ServerModSetup("358749986")
+ServerModSetup("375859599")
+ServerModSetup("378160973")
+ServerModSetup("458587300")
+ServerModSetup("462434129")
+ServerModSetup("666155465")
+ServerModSetup("758532836")
+ServerModSetup("764204839")
+
+echo "ServerModSetup("375859599")" >> dedicated_server_mods_setup.lua
