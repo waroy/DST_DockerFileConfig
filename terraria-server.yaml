@@ -25,6 +25,7 @@ spec:
           volumeMounts:
             - name: terraria-server-persistent-storage
               mountPath: /world
+          args: ["-world", "/world/preFinalUpdateWorld.wld"] 
       volumes:
         - name: terraria-server-persistent-storage
           gcePersistentDisk:

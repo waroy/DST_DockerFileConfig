@@ -61,3 +61,5 @@ echo "ServerModSetup("375859599")" >> dedicated_server_mods_setup.lua
 
 #Terraria server
 gcloud compute addresses describe terraria-ip --region
+
+kubectl get events
