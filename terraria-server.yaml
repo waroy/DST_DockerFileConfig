@@ -15,7 +15,7 @@ spec:
         app: terraria-server
     spec:
       containers:
-        - image: asia.gcr.io/euphoric-quanta-171208/terraria
+        - image: asia.gcr.io/graphic-parsec-262612/terraria
           name: terraria-server
           tty: true
           stdin: true

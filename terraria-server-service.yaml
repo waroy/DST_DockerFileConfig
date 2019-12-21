@@ -12,3 +12,4 @@ spec:
       protocol: TCP
   selector:
     app: terraria-server
+  loadBalancerIP: "35.247.183.210"

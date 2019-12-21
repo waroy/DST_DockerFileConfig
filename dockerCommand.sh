@@ -56,3 +56,8 @@ ServerModSetup("758532836")
 ServerModSetup("764204839")
 
 echo "ServerModSetup("375859599")" >> dedicated_server_mods_setup.lua
+
+
+
+#Terraria server
+gcloud compute addresses describe terraria-ip --region
