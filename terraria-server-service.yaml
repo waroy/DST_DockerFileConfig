@@ -6,10 +6,11 @@ metadata:
   name: terraria-server
 spec:
   type: LoadBalancer
+  type: NodePort
   ports:
     - port: 7777
       targetPort: 7777
       protocol: TCP
   selector:
     app: terraria-server
-  loadBalancerIP: "35.247.183.210"
+  # loadBalancerIP: "35.247.183.210"
