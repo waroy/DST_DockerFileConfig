@@ -63,3 +63,5 @@ echo "ServerModSetup("375859599")" >> dedicated_server_mods_setup.lua
 gcloud compute addresses describe terraria-ip --region
 
 kubectl get events
+
+gcloud compute firewall-rules create myservice --allow tcp:7777
