@@ -6,7 +6,7 @@ metadata:
   name: terraria-server
 spec:
   type: LoadBalancer
-  type: NodePort
+  # type: NodePort
   ports:
     - port: 7777
       targetPort: 7777
