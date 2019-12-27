@@ -64,4 +64,6 @@ gcloud compute addresses describe terraria-ip --region
 
 kubectl get events
 
-gcloud compute firewall-rules create myservice --allow tcp:7777
+gcloud compute firewall-rules create terraria-server --allow tcp:30777
+
+gcloud compute instances list
