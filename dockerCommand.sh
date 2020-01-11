@@ -15,7 +15,7 @@ gcloud container clusters delete dst-server
 
 gcloud container clusters create dst-server --num-nodes=1 --machine-type=n1-standard-1 --disk-size=5
 
-gcloud compute disks create --size 5GB dst-server-disk
+gcloud compute disks create --size 50GB tmodloader-disk
 
 gcloud compute disks delete dst-server-disk
 
@@ -66,4 +66,10 @@ kubectl get events
 
 gcloud compute firewall-rules create terraria-server --allow tcp:30777
 
+gcloud compute firewall-rules create dst-server --allow udp:10999
+
 gcloud compute instances list
+
+gcloud container clusters get-credentials dst-server --zone asia-southeast1-a
+
+kubectl remove limitrange limit

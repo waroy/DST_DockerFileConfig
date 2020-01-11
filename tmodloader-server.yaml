@@ -1,0 +1,33 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: tmodloader
+  labels:
+    app: tmodloader
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: tmodloader
+  template:
+    metadata:
+      labels:
+        app: tmodloader
+    spec:
+      containers:
+        - image: asia.gcr.io/graphic-parsec-262612/tmodloader
+          name: tmodloader
+          tty: true
+          stdin: true
+          ports:
+            - containerPort: 7777
+              name: tmodloader
+          volumeMounts:
+            - name: tmodloader-persistent-storage
+              mountPath: /terraria
+          args: ["-world", "/terraria/ModLoader/Worlds/Calamity_Irwin.wld"] 
+      volumes:
+        - name: tmodloader-persistent-storage
+          gcePersistentDisk:
+            pdName: tmodloader-disk
+            fsType: ext4

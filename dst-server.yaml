@@ -15,14 +15,36 @@ spec:
         app: dst-server
     spec:
       containers:
-        - image: asia.gcr.io/euphoric-quanta-171208/dst-server
+        - image: asia.gcr.io/graphic-parsec-262612/dst-server
           name: dst-server
+          tty: true
+          stdin: true
           ports:
-            - containerPort: 10888
-              name: dst-server
+            # - port: 10998
+            #   targetPort: 10998
+            #   name: localport
+            #   protocol: UDP
+            - containerPort: 30999
+              name: master
+              protocol: UDP
+            - containerPort: 33000
+              protocol: UDP
+              name: caves
+            - containerPort: 32346
+              name: steam-1
+              protocol: UDP
+            - containerPort: 32347
+              protocol: UDP
+              name: steam-2
+            # - containerPort: 38766
+            #   protocol: UDP
+            #   name: master-auth
+            # - containerPort: 38767
+            #   protocol: UDP
+            #   name: cave-auth
           volumeMounts:
             - name: dst-server-persistent-storage
-              mountPath: /dst-server/DoNotStarveTogether
+              mountPath: /data
       volumes:
         - name: dst-server-persistent-storage
           gcePersistentDisk:

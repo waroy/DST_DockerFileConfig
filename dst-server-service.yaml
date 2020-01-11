@@ -5,10 +5,31 @@ metadata:
     app: dst-server
   name: dst-server
 spec:
-  type: LoadBalancer
+  type: NodePort
   ports:
-    - port: 10888
-      targetPort: 10888
+    # - port: 10998
+    #   targetPort: 11009
+    #   name: localport
+    #   protocol: UDP
+    - port: 30999
+      targetPort: 30999
+      nodePort: 30999
+      name: master
       protocol: UDP
+    - port: 31000
+      targetPort: 31000
+      nodePort: 31000
+      name: caves
+      protocol: UDP
+    - port: 32346
+      targetPort: 32346
+      nodePort: 32346
+      name: steam-1
+      protocol: UDP      
+    - port: 32347
+      targetPort: 32347
+      nodePort: 32347
+      protocol: UDP
+      name: steam-2
   selector:
     app: dst-server

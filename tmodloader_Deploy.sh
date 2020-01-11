@@ -7,3 +7,5 @@ kubectl get pod -l app=terraria-server
 kubectl create -f terraria-server-service.yaml
 
 sh reserved-ip.sh
+
+
