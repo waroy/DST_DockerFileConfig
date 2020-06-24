@@ -31,5 +31,10 @@ spec:
       nodePort: 32347
       protocol: UDP
       name: steam-2
+    # - port: 30888
+    #   targetPort: 30888
+    #   nodePort: 30888
+    #   protocol: UDP
+    #   name: server_port
   selector:
     app: dst-server

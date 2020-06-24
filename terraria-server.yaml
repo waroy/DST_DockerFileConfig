@@ -15,7 +15,7 @@ spec:
         app: terraria-server
     spec:
       containers:
-        - image: asia.gcr.io/graphic-parsec-262612/terraria
+        - image: asia.gcr.io/graphic-parsec-262612/terraria:1404
           name: terraria-server
           tty: true
           stdin: true
@@ -24,8 +24,11 @@ spec:
               name: terraria-server
           volumeMounts:
             - name: terraria-server-persistent-storage
-              mountPath: /world
-          args: ["-world", "/world/preFinalUpdateWorld.wld"] 
+              mountPath: /config
+          env:
+            - name: world
+              value: "Journey_End.wld"
+          # args: ["-world", "/config/Journey_End.wld"] 
       volumes:
         - name: terraria-server-persistent-storage
           gcePersistentDisk:

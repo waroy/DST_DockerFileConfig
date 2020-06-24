@@ -1,2 +1,2 @@
-kubectl delete service,deployment terraria-server
-gcloud container clusters delete terraria-server --quiet --zone asia-southeast1-a
+kubectl delete service,deployment tmodloader-server
+gcloud container clusters delete tmodloader1-server --quiet --zone asia-southeast1-a
